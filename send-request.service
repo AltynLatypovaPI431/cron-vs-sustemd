@@ -1,0 +1,5 @@
+[Unit]
+Description=HTTP Request Service
+[Service]
+Type=oneshot
+ExecStart=/bin/echo "Systemd service executed at $(date)" >> /practice4/logs/execution.log
