@@ -1,29 +1,34 @@
-# cron-vs-sustemd
+# Практическая работа: Cron vs Systemd
 
-<img width="743" height="468" alt="image" src="https://github.com/user-attachments/assets/51983958-783f-463c-9dc1-9743f598e521" />
+В рамках данной работы рассматриваются два подхода к планированию периодических задач в Linux:
 
-<img width="966" height="365" alt="image" src="https://github.com/user-attachments/assets/afead16e-b1d8-498f-8647-a3d6cb483a66" />
+- классический планировщик **cron**
+- современный механизм **systemd timers**
+  
+Для обоих подходов реализована одинаковая задача — периодический запуск bash-скрипта с логированием результата.
 
-<img width="534" height="63" alt="image" src="https://github.com/user-attachments/assets/486d345d-43dd-44b5-9093-00148beaa6ec" />
+## Структура проекта
 
-<img width="655" height="229" alt="image" src="https://github.com/user-attachments/assets/a28eded0-f436-4a5b-9848-eeff29fced33" />
+<img width="545" height="182" alt="image" src="https://github.com/user-attachments/assets/6079c5e0-82ce-47c8-9dd8-aa41f96a3309" />
 
-<img width="635" height="566" alt="image" src="https://github.com/user-attachments/assets/ac52e35d-bf65-4dd9-a42e-d3d19b15d574" />
+### 1. Cron jobs
 
-<img width="637" height="249" alt="image" src="https://github.com/user-attachments/assets/f606a18e-12fb-49fe-a681-c1e230a44cd6" />
+<img width="425" height="46" alt="image" src="https://github.com/user-attachments/assets/6b9e1daf-4357-4543-bf24-7132a55a32ff" />
 
-<img width="664" height="165" alt="image" src="https://github.com/user-attachments/assets/46fa552a-a615-4cce-bac9-a5cf952e6568" />
+### 2. Systemd timer  
 
-<img width="755" height="55" alt="image" src="https://github.com/user-attachments/assets/f83acaec-0388-4b9b-a0a3-85a0051212ab" />
+<img width="516" height="148" alt="image" src="https://github.com/user-attachments/assets/f7f59eb4-6a38-4d3c-acf8-b2e886b4129c" />
 
-<img width="702" height="99" alt="image" src="https://github.com/user-attachments/assets/0de0693a-a819-421e-8163-1f0f5380422b" />
+### 3. Systemd service
 
-<img width="614" height="82" alt="image" src="https://github.com/user-attachments/assets/90e8f02e-d341-4286-b016-fc07bdf34f7e" />
+<img width="787" height="112" alt="image" src="https://github.com/user-attachments/assets/34dc293e-24bf-49e7-8cb9-14db141d4b43" />
 
-<img width="642" height="44" alt="image" src="https://github.com/user-attachments/assets/9790e722-6a6f-48bd-9291-12d519ee18e8" />
+### 4. Execution logs
 
-<img width="640" height="142" alt="image" src="https://github.com/user-attachments/assets/592e190f-eb2c-4466-b532-53d6b5ad1bb7" />
+<img width="563" height="582" alt="image" src="https://github.com/user-attachments/assets/77c6680c-8042-4443-9299-cc96ea111119" />
 
-<img width="670" height="130" alt="image" src="https://github.com/user-attachments/assets/fcd33821-187f-4e6a-9fc2-c805d3744b76" />
-
-
+## Файлы проекта:
+- `cron_scripts/send_request.sh` - скрипт для Cron
+- `systemd/send-request.service` - конфигурация сервиса
+- `systemd/send-request.timer` - конфигурация таймера
+- `execution_logs/execution.log` - логи выполнения
